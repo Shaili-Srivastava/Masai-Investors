@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #container{
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: auto;
+            gap: 20px;
+        }
+       #navbar{
+           display: flex; 
+           justify-content: space-around ;
+           font-size: 30px;
+           background-color: pink ;
+       }
+    </style>
+</head>
+<body>
+    <div id="navbar">
+        <!-- <div><a href="navbar.html">NAVBAR</a></div>x    -->
+        <div><a href="backend.html">BACKEND</a></div>
+        <div><a href="frontend.html">FRONTEND</a></div>
+       
+    </div>
+   
+    <div id="container"></div>
+</body>
+</html>
+
+<script>
+ var arr= JSON.parse(localStorage.getItem("Investors1"));
+ var box = document.querySelector("#container")
+
+ arr.map(function (ele){
+    var div = document.createElement("div")
+    var img= document.createElement("img")
+    var name=document.createElement("h2")
+    var role=document.createElement("p")
+    var logo=document.createElement("img")
+
+    img.src= ele.investors_img;
+    name.innerText= ele.investors_name;
+    role.innerText= ele.investors_role;
+    logo.src =ele.investors_logo;
+    
+    div.append(name,img,logo,role)
+    box.append(div)
+ })
+
+</script>
